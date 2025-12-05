@@ -1,6 +1,11 @@
 /* ============================================
-   SLIDER AUTOMÁTICO
+   SCRIPT PRINCIPAL - InarexSoft
+   Archivo: script.js
    ============================================ */
+
+// ============================================
+// SLIDER AUTOMÁTICO
+// ============================================
 
 let currentSlide = 0;
 const slides = document.querySelectorAll('.slide');
@@ -15,12 +20,12 @@ function nextSlide() {
     showSlide(currentSlide);
 }
 
-// Cambiar slide cada 4 segundos
-setInterval(nextSlide, 4000);
+// Cambiar slide cada 2 segundos
+setInterval(nextSlide, 2000);
 
-/* ============================================
-   VALIDACIÓN DE FORMULARIO
-   ============================================ */
+// ============================================
+// VALIDACIÓN DE FORMULARIO BÁSICA
+// ============================================
 
 const form = document.querySelector('form');
 
@@ -59,9 +64,9 @@ if (form) {
     });
 }
 
-/* ============================================
-   SCROLL SUAVE
-   ============================================ */
+// ============================================
+// SCROLL SUAVE
+// ============================================
 
 document.querySelectorAll('a[href^="#"]').forEach(anchor => {
     anchor.addEventListener('click', function (e) {
@@ -72,3 +77,32 @@ document.querySelectorAll('a[href^="#"]').forEach(anchor => {
         }
     });
 });
+
+// ============================================
+// INTEGRACIÓN CON SUPABASE Y EMAILJS (OPCIONAL)
+// ============================================
+
+// Solo si tienes los archivos de configuración
+try {
+    import('./supabaseConfig.js').then(module => {
+        console.log('✅ Supabase Config cargado');
+    }).catch(err => {
+        console.warn('⚠️ Supabase Config no encontrado - usando FormSubmit');
+    });
+
+    import('./emailConfig.js').then(module => {
+        console.log('✅ Email Config cargado');
+    }).catch(err => {
+        console.warn('⚠️ Email Config no encontrado');
+    });
+
+    import('./formularioService.js').then(module => {
+        console.log('✅ Formulario Service cargado');
+    }).catch(err => {
+        console.warn('⚠️ Formulario Service no encontrado');
+    });
+} catch (error) {
+    console.warn('Módulos opcionales no disponibles');
+}
+
+console.log('%c🚀 InarexSoft iniciado correctamente', 'color: #1e3c72; font-size: 14px; font-weight: bold;');
