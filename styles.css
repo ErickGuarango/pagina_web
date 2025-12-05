@@ -1,0 +1,557 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: 'Poppins', Arial, sans-serif;
+    color: #1a1a1a;
+    line-height: 1.6;
+}
+
+/* ============================================
+   HEADER
+   ============================================ */
+
+header {
+    background: white;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+.logo-img {
+    height: 55px;
+    width: auto;
+    object-fit: contain;
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.logo-text {
+    display: flex;
+    flex-direction: column;
+}
+
+.logo-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+    color: #1e3c72;
+}
+
+.logo-subtitle {
+    font-size: 0.75rem;
+    color: #666;
+    font-weight: 400;
+}
+
+header nav {
+    display: flex;
+    gap: 25px;
+}
+
+header nav a {
+    color: #1e3c72;
+    text-decoration: none;
+    font-weight: 500;
+    transition: 0.3s;
+}
+
+header nav a:hover {
+    color: #00a8e8;
+}
+
+.nav-contact {
+    background: #1e3c72 !important;
+    color: white !important;
+    padding: 10px 20px;
+    border-radius: 6px;
+    transition: 0.3s;
+}
+
+.nav-contact:hover {
+    background: #152a56 !important;
+    color: white !important;
+}
+
+/* ============================================
+   HERO / SLIDER
+   ============================================ */
+
+.hero {
+    position: relative;
+    height: 80vh;
+    min-height: 500px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: hidden;
+}
+
+.hero-slider {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+
+.slide {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    opacity: 0;
+    transition: opacity 1.5s ease-in-out;
+}
+
+.slide.active {
+    opacity: 1;
+}
+
+.slide-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.slide-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.35);
+    z-index: 2;
+}
+
+.slide-text {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    color: white;
+    z-index: 3;
+    width: 90%;
+    max-width: 700px;
+    animation: slideInText 0.8s ease;
+}
+
+.slide-text h2 {
+    font-size: clamp(2rem, 6vw, 3.5rem);
+    margin-bottom: 1rem;
+    font-weight: 700;
+}
+
+.slide-text p {
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    opacity: 0.85;
+}
+
+@keyframes slideInText {
+    from {
+        opacity: 0;
+        transform: translate(-50%, -40%);
+    }
+    to {
+        opacity: 1;
+        transform: translate(-50%, -50%);
+    }
+}
+
+.hero-content {
+    position: absolute;
+    bottom: 3rem;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 10;
+}
+
+.btn-cotizar {
+    display: inline-block;
+    background: #1e3c72;
+    color: white;
+    padding: 15px 35px;
+    border-radius: 40px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: 0.3s;
+    box-shadow: 0 4px 16px rgba(30, 60, 114, 0.4);
+}
+
+.btn-cotizar:hover {
+    background: #152a56;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(30, 60, 114, 0.5);
+}
+
+/* ============================================
+   SECCIONES GENERALES
+   ============================================ */
+
+section {
+    padding: 60px 10%;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #1e3c72;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* ============================================
+   SERVICIOS
+   ============================================ */
+
+.servicios {
+    background: white;
+}
+
+.section-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+/* ============================================
+   SERVICIOS
+   ============================================ */
+
+.servicios {
+    background: #f5f7fa;
+}
+
+.servicios-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.servicio-card {
+    background: white;
+    padding: 25px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    transition: 0.3s;
+    text-align: center;
+    border-top: 4px solid #00a8e8;
+}
+
+.servicio-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+}
+
+.servicio-icon {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.servicio-card h3 {
+    color: #1e3c72;
+    margin-bottom: 10px;
+    font-size: 1.3rem;
+}
+
+.servicio-card p {
+    color: #666;
+    font-size: 0.95rem;
+}
+
+.servicio-ejemplos {
+    margin-top: 1rem;
+    padding-top: 1rem;
+    border-top: 1px solid #eee;
+    color: #1e3c72;
+    font-weight: 600;
+    font-size: 0.85rem;
+}
+
+/* ============================================
+   SOBRE NOSOTROS
+   ============================================ */
+
+#nosotros {
+    background: #1e3c72;
+    color: white;
+}
+
+#nosotros h2 {
+    color: white;
+}
+
+.vision-content {
+    max-width: 800px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+.vision-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.8;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+/* ============================================
+   BENEFICIOS
+   ============================================ */
+
+.beneficios {
+    background: white;
+}
+
+.beneficios ul {
+    list-style: none;
+    max-width: 600px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 15px;
+}
+
+.beneficios li {
+    font-size: 1.1rem;
+    padding: 15px 20px;
+    background: white;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+    color: #1e3c72;
+    font-weight: 500;
+}
+
+/* ============================================
+   FORMULARIO
+   ============================================ */
+
+#cotizacion {
+    background: white;
+}
+
+form {
+    max-width: 700px;
+    margin: 0 auto;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group.full-width {
+    grid-column: 1 / -1;
+}
+
+.form-group label {
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1e3c72;
+    font-size: 0.95rem;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    padding: 12px;
+    border: 2px solid #ddd;
+    border-radius: 6px;
+    font-family: 'Poppins', Arial, sans-serif;
+    font-size: 0.95rem;
+    transition: 0.3s;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    outline: none;
+    border-color: #00a8e8;
+    box-shadow: 0 0 0 3px rgba(0, 168, 232, 0.1);
+}
+
+.form-group textarea {
+    resize: vertical;
+    min-height: 120px;
+}
+
+form button {
+    padding: 14px;
+    background: #1e3c72;
+    color: white;
+    border: none;
+    border-radius: 6px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: 0.3s;
+    width: 100%;
+    margin-top: 10px;
+}
+
+form button:hover {
+    background: #152a56;
+    transform: scale(1.01);
+}
+
+/* ============================================
+   CONTACTO
+   ============================================ */
+
+#contacto {
+    background: #1e3c72;
+    color: white;
+}
+
+#contacto h2 {
+    color: white;
+}
+
+.contacto-info {
+    max-width: 600px;
+    margin: 0 auto;
+}
+
+.contacto-info p {
+    font-size: 1.1rem;
+    margin-bottom: 15px;
+    color: rgba(255, 255, 255, 0.95);
+}
+
+.contacto-info a {
+    color: #00a8e8;
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.contacto-info a:hover {
+    text-decoration: underline;
+}
+
+/* ============================================
+   FOOTER
+   ============================================ */
+
+footer {
+    background: #0a0f3d;
+    color: white;
+    padding: 25px;
+    text-align: center;
+    font-size: 0.9rem;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+
+@media (max-width: 768px) {
+    header {
+        padding: 15px 20px;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+
+    header nav {
+        gap: 15px;
+    }
+
+    header nav a {
+        font-size: 0.85rem;
+    }
+
+    .hero {
+        height: 60vh;
+        min-height: 350px;
+    }
+
+    .slide-text h2 {
+        font-size: 1.8rem;
+    }
+
+    .slide-text p {
+        font-size: 0.95rem;
+    }
+
+    section {
+        padding: 40px 5%;
+    }
+
+    h2 {
+        font-size: 2rem;
+    }
+
+    .servicios-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .form-row {
+        grid-template-columns: 1fr;
+    }
+
+    .beneficios ul {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    header {
+        padding: 10px 15px;
+    }
+
+    .logo-img {
+        height: 35px;
+    }
+
+    header nav {
+        gap: 10px;
+        font-size: 0.75rem;
+    }
+
+    .hero {
+        height: 50vh;
+        min-height: 300px;
+    }
+
+    .slide-text h2 {
+        font-size: 1.4rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+
+    section {
+        padding: 30px 3%;
+    }
+
+    .btn-cotizar {
+        padding: 12px 25px;
+        font-size: 0.9rem;
+    }
+}
